@@ -17,6 +17,9 @@ import buildComponent from './components/build-component'
 import MountableMixin from './utils/mountableMixin'
 import {Env} from "./utils/env";
 let GMapApi = null;
+let gmapApiPromiseLazy = null;
+let gmapOptions = {}
+let defaultResizeBus = null;
 
 export {
   loadGMapApi,
@@ -35,6 +38,18 @@ export {
   MountableMixin,
 }
 
+export function useGMapApiPromiseLazy() {
+  return gmapApiPromiseLazy;
+}
+
+export function useGMapOptions() {
+  return gmapOptions;
+}
+
+export function useGMapDefaultResizeBus() {
+  return defaultResizeBus
+}
+
 export default function install(Vue, options) {
   options = {
     installComponents: true,
@@ -48,16 +63,17 @@ export default function install(Vue, options) {
     },
   })
 
-  const defaultResizeBus = createApp()
+  defaultResizeBus = createApp()
 
   // Use a lazy to only load the API when
   // a VGM component is loaded
-  let gmapApiPromiseLazy = makeGMapApiPromiseLazy(options)
+  gmapApiPromiseLazy = makeGMapApiPromiseLazy(options);
+  gmapOptions = options;
 
   Vue.mixin({
     created() {
       this.$gmapDefaultResizeBus = defaultResizeBus
-      this.$gmapOptions = options
+      this.$gmapOptions = gmapOptions
       this.$gmapApiPromiseLazy = gmapApiPromiseLazy
     },
   })
