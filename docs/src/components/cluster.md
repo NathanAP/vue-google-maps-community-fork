@@ -8,6 +8,8 @@ Here you will find some uses for Google Maps Clusterers.
 
 Clustering your markers are only possible because of `@googlemaps/markerclusterer`! The community is thankful for your effort!
 
+Of course, you can have a look at [their docs](https://googlemaps.github.io/js-markerclusterer/) for more information on how you can use the props described below.
+
 ## Cluster your markers
 
 You can add clusters to your `GMapMarker` using `GMapCluster` component inside of `GMapMap` component:
@@ -52,26 +54,18 @@ You can add clusters to your `GMapMarker` using `GMapCluster` component inside o
 
 You can pass the following props to control behavior of clusters:
 
-### minimumClusterSize
+### algorithm
 
-Defines the minimum distance of markers to cluster them:
+Defines the algorithm to use to cluster the markers (default `SuperClusterAlgorithm`):
 
 ```js
-:minimumClusterSize="2"
+:algorithm="algorithm"
 ```
 
-### styles
+### renderer
 
-Controls style and icon of clusters:
-
-```js
-:styles="clusterIcon"
-```
-
-### zoomOnClick
-
-Defines whether clusters should zoom in, when clicked:
+Defines the function to use for render the cluster markers (default `DefaultRenderer`).
 
 ```js
-:zoomOnClick="true"
+:renderer="{ renderer: renderer }"
 ```
