@@ -8,7 +8,7 @@ Use `npm install @googlemaps/markerclusterer` to install the library into your p
 
 Note: this is required because it was the best option for us to make Clustering viable. The original version of this library wasn't supporting the new MarkerClustering package version, so we had to make adjustments. You can read more about it in [this PR](https://github.com/NathanAP/vue-google-maps-community-fork/pull/19).
 
-## Example
+## Example[^1]
 
 Following this example will help you create your own render function and clustering algorithm.
 
@@ -109,3 +109,6 @@ The above code changes the cluster marker color based on the mean of markers con
 an SVG icon for the cluster marker. Note the use of the `stats` parameter. For more information on it take a look at
 the `@googlemaps/markerclusterer`
 [ClusterStats doc](https://googlemaps.github.io/js-markerclusterer/classes/ClusterStats.html).
+
+[^1]: The render functions examples are from
+the `@googlemaps/markerclusterer` [docs](https://googlemaps.github.io/js-markerclusterer/).
