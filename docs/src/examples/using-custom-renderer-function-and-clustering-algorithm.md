@@ -69,3 +69,43 @@ Following this example will help you create your own render function and cluster
   }
 </script>
 ```
+
+You can also have more control over the cluster marker by replacing the above `render` function with the following
+example:
+
+```js
+render: ({count, position}, stats) => {
+  // change color if this cluster has more markers than the mean cluster
+  const color = count > Math.max(10, stats.clusters.markers.mean) ? "#ff0000" : "#0000ff";
+
+  // create svg url with fill color
+  const svg = window.btoa(`
+    <svg fill="${color}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+      <circle cx="120" cy="120" opacity=".6" r="70" />
+      <circle cx="120" cy="120" opacity=".3" r="90" />
+      <circle cx="120" cy="120" opacity=".2" r="110" />
+    </svg>`);
+
+  // create marker using svg icon
+  return new this.google.maps.Marker({
+    position,
+    icon: {
+      url: `data:image/svg+xml;base64,${svg}`,
+      scaledSize: new this.google.maps.Size(45, 45),
+    },
+    label: {
+      text: String(count),
+      color: "rgba(255,255,255,0.9)",
+      fontSize: "12px",
+    },
+    title: `Cluster of ${count} markers`,
+    // adjust zIndex to be above other markers
+    zIndex: Number(this.google.maps.Marker.MAX_ZINDEX) + count,
+  });
+}
+```
+
+The above code changes the cluster marker color based on the mean of markers contained in each of them, and how to use
+an SVG icon for the cluster marker. Note the use of the `stats` parameter. For more information on it take a look at
+the `@googlemaps/markerclusterer`
+[ClusterStats doc](https://googlemaps.github.io/js-markerclusterer/classes/ClusterStats.html).
