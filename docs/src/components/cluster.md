@@ -67,5 +67,5 @@ Defines the algorithm to use to cluster the markers (default `SuperClusterAlgori
 Defines the function to use for render the cluster markers (default `DefaultRenderer`).
 
 ```js
-:renderer="{ renderer: renderer }"
+:renderer="{ render: render }"
 ```

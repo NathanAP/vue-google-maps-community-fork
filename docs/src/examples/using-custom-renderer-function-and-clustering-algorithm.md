@@ -21,7 +21,7 @@ Following this example will help you create your own render function and cluster
     map-type-id="terrain"
     style="width: 500px; height: 300px"
   >
-    <GMapCluster :algorithm="algorithm" :renderer="{ renderer: renderer }">
+    <GMapCluster :algorithm="algorithm" :renderer="{ render: render }">
       <GMapMarker
         v-for="(m, index) in markers"
         :key="index"
@@ -54,7 +54,7 @@ Following this example will help you create your own render function and cluster
       }
     },
     methods: {
-      renderer: ({ count, position }) =>
+      render: ({ count, position }) =>
         new this.google.maps.Marker({
           label: {
             text: String(count),
