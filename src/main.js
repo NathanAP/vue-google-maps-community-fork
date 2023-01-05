@@ -17,6 +17,7 @@ import buildComponent from './components/build-component'
 import MountableMixin from './utils/mountableMixin'
 import { Env } from './utils/env'
 let GMapApi = null
+let googleMapsObject = null
 
 export {
   loadGMapApi,
@@ -33,6 +34,7 @@ export {
   buildComponent,
   Autocomplete,
   MountableMixin,
+  googleMapsObject,
 }
 
 export default function install(Vue, options) {
@@ -82,6 +84,8 @@ function makeGMapApiPromiseLazy(options) {
   // Things to do once the API is loaded
   function onApiLoaded() {
     GMapApi.gmapApi = {}
+
+    googleMapsObject = window.google
     return window.google
   }
 
