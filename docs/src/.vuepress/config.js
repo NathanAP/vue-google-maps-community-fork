@@ -80,6 +80,7 @@ module.exports = {
         children: [
           '/examples/how-to-add-a-custom-button-to-map',
           '/examples/points-in-polygon',
+          '/examples/how-to-access-map-ref',
           '/examples/how-to-access-google-maps-object',
           '/examples/how-to-add-custom-controls',
           '/examples/how-to-open-or-close-info-window-on-event',

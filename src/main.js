@@ -17,10 +17,11 @@ import buildComponent from './components/build-component'
 import MountableMixin from './utils/mountableMixin'
 import { Env } from './utils/env'
 let GMapApi = null
-let googleMapsObject = null
+let GMapObject = null
 
 export {
   loadGMapApi,
+  GMapObject,
   Marker,
   Polyline,
   Polygon,
@@ -34,7 +35,6 @@ export {
   buildComponent,
   Autocomplete,
   MountableMixin,
-  googleMapsObject,
 }
 
 export default function install(Vue, options) {
@@ -85,7 +85,7 @@ function makeGMapApiPromiseLazy(options) {
   function onApiLoaded() {
     GMapApi.gmapApi = {}
 
-    googleMapsObject = window.google
+    GMapObject = window.google
     return window.google
   }
 
