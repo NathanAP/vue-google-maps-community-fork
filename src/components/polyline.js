@@ -14,6 +14,7 @@ const props = {
   path: {
     type: Array,
     twoWay: true,
+    noBind: true,
   },
 }
 
