@@ -4,8 +4,8 @@ module.exports = {
     es6: true,
     node: true,
   },
-  "globals": {
-    "google": true
+  globals: {
+    google: true,
   },
   parser: 'vue-eslint-parser',
   parserOptions: {
@@ -19,9 +19,9 @@ module.exports = {
 
   extends: [
     'plugin:vue/vue3-essential',
-    'eslint:recommended',
-    'plugin:prettier/recommended',
-    'prettier',
+    // 'eslint:recommended',
+    // 'plugin:prettier/recommended',
+    // 'prettier',
   ],
 
   rules: {
