@@ -4,8 +4,8 @@ module.exports = {
     es6: true,
     node: true,
   },
-  "globals": {
-    "google": true
+  globals: {
+    google: true,
   },
   parser: 'vue-eslint-parser',
   parserOptions: {
