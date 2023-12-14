@@ -19,9 +19,9 @@ module.exports = {
 
   extends: [
     'plugin:vue/vue3-essential',
-    // 'eslint:recommended',
-    // 'plugin:prettier/recommended',
-    // 'prettier',
+    'eslint:recommended',
+    'plugin:prettier/recommended',
+    'prettier',
   ],
 
   rules: {
