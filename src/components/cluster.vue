@@ -52,7 +52,7 @@ export default buildComponent({
     }
   },
   updated() {
-    if (this.$clusterObject) {
+    if (this.$clusterObject && this.$clusterObject.clusters.length > 0) {
       this.$clusterObject.render()
     }
   },
