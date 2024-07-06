@@ -47,7 +47,7 @@ export default {
       let refInput = _this.$refs.input
       if (_this.$slots.input) {
         const refName = _this.$slots.input()[0].props.ref
-        const scopedInput = _this.$slots.input()[0].ref.i.ctx.$refs[refName]
+        const scopedInput = _this.$slots.input()[0].ref.i.refs[refName]
         if (scopedInput) {
           refInput = scopedInput.$el.getElementsByTagName('input')[0]
         }
